@@ -9,9 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Message Queue", "2. Mess
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Message Bus", "3. Message Bus", "{86365C73-3B6E-446F-BD27-9ACFA9AB72C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "MessageBusPatterns.PubSub.Server\Server.csproj", "{7FAA2D7F-B5A3-413D-814F-89FA2113E204}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSub.Server", "MessageBusPatterns.PubSub.Server\PubSub.Server.csproj", "{7FAA2D7F-B5A3-413D-814F-89FA2113E204}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "MessageBusPatterns.PubSub.Shared\Shared.csproj", "{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSub.Shared", "MessageBusPatterns.PubSub.Shared\PubSub.Shared.csproj", "{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSub.Subscriber", "MessageBusPatterns.PubSub.Subscriber\PubSub.Subscriber.csproj", "{61F88389-BB17-4EA2-85BF-A4CE788BF8BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61F88389-BB17-4EA2-85BF-A4CE788BF8BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61F88389-BB17-4EA2-85BF-A4CE788BF8BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61F88389-BB17-4EA2-85BF-A4CE788BF8BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61F88389-BB17-4EA2-85BF-A4CE788BF8BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,5 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7FAA2D7F-B5A3-413D-814F-89FA2113E204} = {EE6072D1-A9A1-49A0-BE06-59CE852D4645}
 		{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21} = {EE6072D1-A9A1-49A0-BE06-59CE852D4645}
+		{61F88389-BB17-4EA2-85BF-A4CE788BF8BB} = {EE6072D1-A9A1-49A0-BE06-59CE852D4645}
 	EndGlobalSection
 EndGlobal
