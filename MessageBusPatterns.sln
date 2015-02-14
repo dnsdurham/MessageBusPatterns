@@ -3,8 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Transient Pub-Sub", "1. Transient Pub-Sub", "{EE6072D1-A9A1-49A0-BE06-59CE852D4645}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Message Queue", "2. Message Queue", "{A6AA99EB-33FF-46AF-B9D0-AEEE10F5C22B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Message Bus", "3. Message Bus", "{86365C73-3B6E-446F-BD27-9ACFA9AB72C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "MessageBusPatterns.PubSub.Server\Server.csproj", "{7FAA2D7F-B5A3-413D-814F-89FA2113E204}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "MessageBusPatterns.PubSub.Shared\Shared.csproj", "{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FAA2D7F-B5A3-413D-814F-89FA2113E204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FAA2D7F-B5A3-413D-814F-89FA2113E204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FAA2D7F-B5A3-413D-814F-89FA2113E204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FAA2D7F-B5A3-413D-814F-89FA2113E204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7FAA2D7F-B5A3-413D-814F-89FA2113E204} = {EE6072D1-A9A1-49A0-BE06-59CE852D4645}
+		{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21} = {EE6072D1-A9A1-49A0-BE06-59CE852D4645}
 	EndGlobalSection
 EndGlobal
