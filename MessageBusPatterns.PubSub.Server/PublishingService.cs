@@ -15,19 +15,26 @@ namespace MessageBusPatterns.PubSub.Server
             Type type = typeof(IPublishingService);
             MethodInfo publishMethodInfo = type.GetMethod("Publish");
 
-            foreach (var subscriber in SubscriptionManager.Subscribers)
+            if (SubscriptionManager.Subscribers.Count > 0)
             {
-                try
+                foreach (var subscriber in SubscriptionManager.Subscribers)
                 {
-                    publishMethodInfo.Invoke(subscriber, new object[] { e });
-                }
-                catch
-                {
-                    Console.WriteLine("Error publishing to subscriber");
-                }
+                    try
+                    {
+                        publishMethodInfo.Invoke(subscriber, new object[] { e });
+                        Console.WriteLine("Message {0} send to subscriber", e.MessageNum);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error publishing to subscriber");
+                    }
 
+                }                
             }
-
+            else
+            {
+                Console.WriteLine("No subscribers for message {0}", e.MessageNum);                
+            }
         }
     }
 }

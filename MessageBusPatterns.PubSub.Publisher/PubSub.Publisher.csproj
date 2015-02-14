@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{61F88389-BB17-4EA2-85BF-A4CE788BF8BB}</ProjectGuid>
+    <ProjectGuid>{BD3C5755-9F16-427D-8F7B-C64A2A66117C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MessageBusPatterns.PubSub.Subscriber</RootNamespace>
-    <AssemblyName>MessageBusPatterns.PubSub.Subscriber</AssemblyName>
+    <RootNamespace>MessageBusPatterns.PubSub.Publisher</RootNamespace>
+    <AssemblyName>MessageBusPatterns.PubSub.Publisher</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MessageBusPatterns.PubSub.Server
 {
@@ -12,7 +8,7 @@ namespace MessageBusPatterns.PubSub.Server
         private static ServiceHost _publishingServiceHost;
         private static ServiceHost _subscriptionServiceHost;
 
-        static void Main(string[] args)
+        static void Main()
         {
             _publishingServiceHost = new ServiceHost(typeof(PublishingService));
             _publishingServiceHost.Open();
@@ -29,6 +25,9 @@ namespace MessageBusPatterns.PubSub.Server
             Console.WriteLine("Closing service hosts...");
             _publishingServiceHost.Close();
             _subscriptionServiceHost.Close();
+
+            Console.WriteLine("Hosts closed. Press any key to exit.");
+            Console.ReadLine();
         }
     }
 }

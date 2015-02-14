@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSub.Shared", "MessageBus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSub.Subscriber", "MessageBusPatterns.PubSub.Subscriber\PubSub.Subscriber.csproj", "{61F88389-BB17-4EA2-85BF-A4CE788BF8BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSub.Publisher", "MessageBusPatterns.PubSub.Publisher\PubSub.Publisher.csproj", "{BD3C5755-9F16-427D-8F7B-C64A2A66117C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{61F88389-BB17-4EA2-85BF-A4CE788BF8BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61F88389-BB17-4EA2-85BF-A4CE788BF8BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61F88389-BB17-4EA2-85BF-A4CE788BF8BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD3C5755-9F16-427D-8F7B-C64A2A66117C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3C5755-9F16-427D-8F7B-C64A2A66117C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD3C5755-9F16-427D-8F7B-C64A2A66117C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD3C5755-9F16-427D-8F7B-C64A2A66117C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,5 +47,6 @@ Global
 		{7FAA2D7F-B5A3-413D-814F-89FA2113E204} = {EE6072D1-A9A1-49A0-BE06-59CE852D4645}
 		{2CC85DF4-7051-40DD-8D5D-3560FDA7EA21} = {EE6072D1-A9A1-49A0-BE06-59CE852D4645}
 		{61F88389-BB17-4EA2-85BF-A4CE788BF8BB} = {EE6072D1-A9A1-49A0-BE06-59CE852D4645}
+		{BD3C5755-9F16-427D-8F7B-C64A2A66117C} = {EE6072D1-A9A1-49A0-BE06-59CE852D4645}
 	EndGlobalSection
 EndGlobal
