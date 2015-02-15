@@ -1,19 +1,16 @@
 ﻿using System;
+using System.Messaging;
 using System.Threading;
-using MessageBusPatterns.PubSub.Shared;
 
-namespace MessageBusPatterns.PubSub.Publisher
+namespace MessageBusPatterns.Msmq.Sender
 {
     class Program
     {
         private static int _messageNum;
-        static PublishingClient _publishingClient;
 
-        static void Main()
+        static void Main(string[] args)
         {
             bool exitApp = false;
-
-            _publishingClient = new PublishingClient();
 
             // get the first menu selection
             int menuSelection = InitConsoleMenu();
@@ -50,19 +47,37 @@ namespace MessageBusPatterns.PubSub.Publisher
             {
                 SendOneMessage();
             }
-            
+
         }
 
-        private static void SendOneMessage()
+        static void SendOneMessage()
         {
-            PubSubMessage message = new PubSubMessage()
-            {
-                MessageNum = _messageNum++,
-                Content = "[Message content here]"
-            };
-
             Thread.Sleep(1000); // Pause one seconnds between messages
-            _publishingClient.Publish(message);
+
+            // Create a transaction because we are using a transactional queue.
+            using (var trn = new MessageQueueTransaction())
+            {
+                try
+                {
+                    // Create queue object
+                    using (var queue = new MessageQueue(@".\private$\testqueue"))
+                    {
+                        queue.Formatter = new XmlMessageFormatter();
+
+                        // push message onto queue (inside of a transaction)
+                        trn.Begin();
+                        queue.Send("[Message content here]", String.Format("Message {0}",_messageNum++), trn);
+                        trn.Commit();
+
+                        Console.WriteLine("Message {0} queued", _messageNum);
+                    }
+                }
+                catch
+                {
+                    trn.Abort(); // rollback the transaction
+                }
+            }
+
         }
 
         private static int InitConsoleMenu()

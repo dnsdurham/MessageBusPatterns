@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 using MessageBusPatterns.PubSub.Shared;
 
 namespace MessageBusPatterns.PubSub.Publisher
@@ -8,6 +9,7 @@ namespace MessageBusPatterns.PubSub.Publisher
         public void Publish(PubSubMessage e)
         {
             Channel.Publish(e);
+            Console.WriteLine("Message {0} published", e.MessageNum);
         }
     }
 }
