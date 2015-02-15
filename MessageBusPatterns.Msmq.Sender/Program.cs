@@ -8,7 +8,7 @@ namespace MessageBusPatterns.Msmq.Sender
     {
         private static int _messageNum;
 
-        static void Main(string[] args)
+        static void Main()
         {
             bool exitApp = false;
 
@@ -66,7 +66,8 @@ namespace MessageBusPatterns.Msmq.Sender
 
                         // push message onto queue (inside of a transaction)
                         trn.Begin();
-                        queue.Send("[Message content here]", String.Format("Message {0}",_messageNum++), trn);
+                        _messageNum++; // increment the message number
+                        queue.Send("[Message content here]", String.Format("Message {0}",_messageNum), trn);
                         trn.Commit();
 
                         Console.WriteLine("Message {0} queued", _messageNum);

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSub.Publisher", "Message
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Msmq.Sender", "MessageBusPatterns.Msmq.Sender\Msmq.Sender.csproj", "{ADFB43EB-117E-4290-A301-161192F67381}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Msmq.Listener", "MessageBusPatterns.Msmq.Listener\Msmq.Listener.csproj", "{47AE2009-ECF1-4670-B972-8CAE77746161}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{ADFB43EB-117E-4290-A301-161192F67381}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADFB43EB-117E-4290-A301-161192F67381}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADFB43EB-117E-4290-A301-161192F67381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47AE2009-ECF1-4670-B972-8CAE77746161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47AE2009-ECF1-4670-B972-8CAE77746161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47AE2009-ECF1-4670-B972-8CAE77746161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47AE2009-ECF1-4670-B972-8CAE77746161}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +61,6 @@ Global
 		{61F88389-BB17-4EA2-85BF-A4CE788BF8BB} = {EE6072D1-A9A1-49A0-BE06-59CE852D4645}
 		{BD3C5755-9F16-427D-8F7B-C64A2A66117C} = {EE6072D1-A9A1-49A0-BE06-59CE852D4645}
 		{ADFB43EB-117E-4290-A301-161192F67381} = {A6AA99EB-33FF-46AF-B9D0-AEEE10F5C22B}
+		{47AE2009-ECF1-4670-B972-8CAE77746161} = {A6AA99EB-33FF-46AF-B9D0-AEEE10F5C22B}
 	EndGlobalSection
 EndGlobal
