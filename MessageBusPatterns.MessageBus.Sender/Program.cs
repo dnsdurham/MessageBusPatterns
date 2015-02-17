@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Messaging;
-using System.Threading;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using MessageBusPatterns.MessageBus.Shared;
 
-namespace MessageBusPatterns.Msmq.Sender
+namespace MessageBusPatterns.MessageBus.Sender
 {
     class Program
     {
-        private static int _messageNum;
-
-        static void Main()
+        static void Main(string[] args)
         {
             bool exitApp = false;
 
@@ -19,11 +22,14 @@ namespace MessageBusPatterns.Msmq.Sender
             {
                 switch (menuSelection)
                 {
-                    case 1: // Send single message
-                        SendOneMessage();
+                    case 1: // Send new order message
+                        SendMessage(TopicType.NewOrder);
                         break;
-                    case 2: // Send multiple messages
-                        SendMultipleMessages();
+                    case 2: // Send shipped message
+                        SendMessage(TopicType.Shipped);
+                        break;
+                    case 3: // Send return message
+                        SendMessage(TopicType.Return);
                         break;
                     case 99:
                         exitApp = true;
@@ -41,43 +47,33 @@ namespace MessageBusPatterns.Msmq.Sender
             }
         }
 
-        private static void SendMultipleMessages()
+        static void SendMessage(TopicType topic)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                SendOneMessage();
-            }
-
-        }
-
-        static void SendOneMessage()
-        {
-            Thread.Sleep(1000); // Pause one seconnds between messages
-
             // Create a transaction because we are using a transactional queue.
             using (var trn = new MessageQueueTransaction())
             {
                 try
                 {
                     // Create queue object
-                    using (var queue = new MessageQueue(@".\private$\testqueue"))
+                    using (var queue = new MessageQueue(@".\private$\mbp.message"))
                     {
                         queue.Formatter = new XmlMessageFormatter();
 
                         // push message onto queue (inside of a transaction)
                         trn.Begin();
-                        _messageNum++; // increment the message number
-                        queue.Send("[Message content here]", String.Format("Message {0}",_messageNum), trn);
+                        queue.Send(String.Format("{0} message", topic), topic.ToString(), trn);
                         trn.Commit();
 
-                        Console.WriteLine("Message {0} queued", _messageNum);
+                        Console.WriteLine("{0} message queued", topic);
+
+                        Console.ReadLine(); // pause so you can read the output before displaying menu again
                     }
                 }
                 catch
                 {
                     trn.Abort(); // rollback the transaction
                 }
-            }
+            }            
         }
 
         private static int InitConsoleMenu()
@@ -86,8 +82,9 @@ namespace MessageBusPatterns.Msmq.Sender
 
             Console.WriteLine("");
             Console.WriteLine("Select desired option:");
-            Console.WriteLine(" 1: Send 1 message");
-            Console.WriteLine(" 2: Send multiple messages");
+            Console.WriteLine(" 1: Send New Order message");
+            Console.WriteLine(" 2: Send Shipped messages");
+            Console.WriteLine(" 3: Send Return messages");
             Console.WriteLine("99: exit");
             string selection = Console.ReadLine();
             if (int.TryParse(selection, out result) == false)

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Messaging;
 
-namespace MessageBusPatterns.Msmq.Listener
+namespace MessageBusPatterns.MessageBus.PaymentProcessor
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             // Create an instance of MessageQueue. Set its formatter.
-            MessageQueue mq = new MessageQueue(@".\private$\testqueue");
+            MessageQueue mq = new MessageQueue(@".\private$\mbp.payment");
             mq.Formatter = new XmlMessageFormatter(new[] { typeof(String) });
 
             // Add an event handler for the PeekCompleted event.
@@ -17,16 +17,16 @@ namespace MessageBusPatterns.Msmq.Listener
             // Begin the asynchronous peek operation.
             mq.BeginPeek();
 
-            Console.WriteLine("Listening on queue");
+            Console.WriteLine("Payment processor listening on queue");
 
             Console.ReadLine();
 
-            Console.WriteLine("Closing listener...");
+            Console.WriteLine("Closing payment processor...");
 
             mq.Close();
             mq.Dispose();
 
-            Console.WriteLine("Listener closed. Press any key to exit.");
+            Console.WriteLine("Payment processor closed. Press any key to exit.");
             Console.ReadLine();
         }
 
@@ -57,7 +57,7 @@ namespace MessageBusPatterns.Msmq.Listener
                     // Display message information on the screen.
                     if (message != null)
                     {
-                        Console.WriteLine("{0}: {1}", message.Label, (string)message.Body);
+                        Console.WriteLine("Message Processed: {0}: {1}", message.Label, (string)message.Body);
                     }
 
                     // message will be removed on txn.Commit.
