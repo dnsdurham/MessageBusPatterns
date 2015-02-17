@@ -5,7 +5,7 @@ namespace MessageBusPatterns.MessageBus.PaymentProcessor
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // Create an instance of MessageQueue. Set its formatter.
             MessageQueue mq = new MessageQueue(@".\private$\mbp.payment");

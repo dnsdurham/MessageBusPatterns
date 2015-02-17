@@ -4,7 +4,7 @@ namespace MessageBusPatterns.MessageBus.Server
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             MessageBus messageBus = new MessageBus();
             Console.WriteLine("Message bus listening on queue");

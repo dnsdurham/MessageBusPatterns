@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Messaging;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using MessageBusPatterns.MessageBus.Shared;
 
 namespace MessageBusPatterns.MessageBus.Sender
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             bool exitApp = false;
 

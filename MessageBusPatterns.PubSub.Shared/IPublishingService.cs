@@ -1,5 +1,4 @@
 ﻿using System.ServiceModel;
-using System.ServiceModel.Channels;
 
 namespace MessageBusPatterns.PubSub.Shared
 {
