@@ -60,7 +60,7 @@ namespace MessageBusPatterns.MessageBus.Sender
                         trn.Commit();
 
                         Console.WriteLine("{0} message queued", topic);
-
+                        Console.WriteLine("Press any key for Menu...");
                         Console.ReadLine(); // pause so you can read the output before displaying menu again
                     }
                 }

@@ -28,6 +28,8 @@ namespace MessageBusPatterns.MessageBus.Server
 
         public void Close()
         {
+            // Remove the event handler before closing the queue
+            _mq.PeekCompleted -= OnPeekCompleted;
             _mq.Close();
             _mq.Dispose();
         }
@@ -36,15 +38,6 @@ namespace MessageBusPatterns.MessageBus.Server
         {
             // Connect to the queue.
             MessageQueue mq = (MessageQueue)source;
-
-            try // catch errors that occur when we close a message queue
-            {
-                mq.EndPeek(asyncResult.AsyncResult);
-            }
-            catch (Exception)
-            {
-                return;
-            }
 
             // create transaction
             using (var txn = new MessageQueueTransaction())

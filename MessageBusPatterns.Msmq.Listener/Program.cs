@@ -23,6 +23,8 @@ namespace MessageBusPatterns.Msmq.Listener
 
             Console.WriteLine("Closing listener...");
 
+            // Remove the event handler before closing the queue
+            mq.PeekCompleted -= OnPeekCompleted;
             mq.Close();
             mq.Dispose();
 
@@ -34,15 +36,6 @@ namespace MessageBusPatterns.Msmq.Listener
         {
             // Connect to the queue.
             MessageQueue mq = (MessageQueue)source;
-
-            try // catch errors that occur when we close a message queue
-            {
-                mq.EndPeek(asyncResult.AsyncResult);
-            }
-            catch (Exception)
-            {
-                return;
-            }
 
             // create transaction
             using (var txn = new MessageQueueTransaction())
