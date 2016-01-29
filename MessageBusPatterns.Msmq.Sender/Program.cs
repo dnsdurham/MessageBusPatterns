@@ -41,6 +41,18 @@ namespace MessageBusPatterns.Msmq.Sender
             }
         }
 
+        private static MessageQueue GetQueueReference()
+        {
+            // Create queue if it doesn't exist.
+            const string queueName = @".\private$\testqueue";
+            MessageQueue queue;
+            if (!MessageQueue.Exists(queueName))
+                queue = MessageQueue.Create(queueName, true);
+            else
+                queue = new MessageQueue(queueName);
+            return queue;
+        }
+
         private static void SendMultipleMessages()
         {
             for (int i = 0; i < 5; i++)
@@ -60,7 +72,7 @@ namespace MessageBusPatterns.Msmq.Sender
                 try
                 {
                     // Create queue object
-                    using (var queue = new MessageQueue(@".\private$\testqueue"))
+                    using (var queue = GetQueueReference())
                     {
                         queue.Formatter = new XmlMessageFormatter();
 

@@ -8,7 +8,7 @@ namespace MessageBusPatterns.Msmq.Listener
         static void Main()
         {
             // Create an instance of MessageQueue. Set its formatter.
-            MessageQueue mq = new MessageQueue(@".\private$\testqueue");
+            MessageQueue mq = GetQueueReference();
             mq.Formatter = new XmlMessageFormatter(new[] { typeof(String) });
 
             // Add an event handler for the PeekCompleted event.
@@ -30,6 +30,17 @@ namespace MessageBusPatterns.Msmq.Listener
 
             Console.WriteLine("Listener closed. Press any key to exit.");
             Console.ReadLine();
+        }
+        
+        private static MessageQueue GetQueueReference()
+        {
+            const string queueName = @".\private$\testqueue";
+            MessageQueue queue;
+            if (!MessageQueue.Exists(queueName))
+                queue = MessageQueue.Create(queueName, true);
+            else
+                queue = new MessageQueue(queueName);
+            return queue;
         }
 
         private static void OnPeekCompleted(Object source, PeekCompletedEventArgs asyncResult)
