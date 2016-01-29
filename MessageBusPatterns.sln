@@ -33,6 +33,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBus.InventoryProcess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBus.NotificationProcessor", "MessageBusPatterns.MessageBus.NotificationProcessor\MessageBus.NotificationProcessor.csproj", "{0680927C-3C39-4E46-B127-33EF0048D952}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Documentation", "0. Documentation", "{F12A5DA9-903F-4217-BCAF-053EB03469A3}"
+	ProjectSection(SolutionItems) = preProject
+		302-4-5-Design Patterns.pdf = 302-4-5-Design Patterns.pdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
