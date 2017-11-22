@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Messaging;
+using MessageBusPatterns.MessageBus.Shared;
 
 namespace MessageBusPatterns.MessageBus.NotificationProcessor
 {
@@ -8,7 +9,7 @@ namespace MessageBusPatterns.MessageBus.NotificationProcessor
         static void Main()
         {
             // Create an instance of MessageQueue. Set its formatter.
-            MessageQueue mq = new MessageQueue(@".\private$\mbp.notification");
+            MessageQueue mq = QueueHelper.GetQueueReference(@".\private$\mbp.notification");
             mq.Formatter = new XmlMessageFormatter(new[] { typeof(String) });
 
             // Add an event handler for the PeekCompleted event.

@@ -25,7 +25,7 @@ namespace MessageBusPatterns.MessageBus.Server
             subscriberQueues.Add(@".\private$\mbp.notification");
             _subscribersList.Add(TopicType.NewOrder, subscriberQueues);
 
-            // Add subscribers to Shiiped commands
+            // Add subscribers to Shipped commands
             subscriberQueues = new List<string>();
             subscriberQueues.Add(@".\private$\mbp.payment");
             subscriberQueues.Add(@".\private$\mbp.notification");

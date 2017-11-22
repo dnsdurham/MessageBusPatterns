@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Messaging;
+using MessageBusPatterns.MessageBus.Shared;
 
 namespace MessageBusPatterns.MessageBus.InventoryProcessor
 {
@@ -8,7 +9,7 @@ namespace MessageBusPatterns.MessageBus.InventoryProcessor
         static void Main()
         {
             // Create an instance of MessageQueue. Set its formatter.
-            MessageQueue mq = new MessageQueue(@".\private$\mbp.inventory");
+            MessageQueue mq = QueueHelper.GetQueueReference(@".\private$\mbp.inventory");
             mq.Formatter = new XmlMessageFormatter(new[] { typeof(String) });
 
             // Add an event handler for the PeekCompleted event.

@@ -50,7 +50,7 @@ namespace MessageBusPatterns.MessageBus.Sender
                 try
                 {
                     // Create queue object
-                    using (var queue = new MessageQueue(@".\private$\mbp.message"))
+                    using (var queue = QueueHelper.GetQueueReference(@".\private$\mbp.message"))
                     {
                         queue.Formatter = new XmlMessageFormatter();
 
@@ -59,9 +59,10 @@ namespace MessageBusPatterns.MessageBus.Sender
                         queue.Send(String.Format("{0} message", topic), topic.ToString(), trn);
                         trn.Commit();
 
+                        Console.WriteLine("===============================");
                         Console.WriteLine("{0} message queued", topic);
-                        Console.WriteLine("Press any key for Menu...");
-                        Console.ReadLine(); // pause so you can read the output before displaying menu again
+                        Console.WriteLine("===============================");
+                        Console.WriteLine();
                     }
                 }
                 catch
