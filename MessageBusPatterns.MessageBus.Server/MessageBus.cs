@@ -16,7 +16,7 @@ namespace MessageBusPatterns.MessageBus.Server
         {
 
             // Create an instance of MessageQueue. Set its formatter.
-            _mq = new MessageQueue(@".\private$\mbp.message");
+            _mq = QueueHelper.GetQueueReference(@".\private$\mbp.message");
             _mq.Formatter = new XmlMessageFormatter(new[] { typeof(String) });
 
             // Add an event handler for the PeekCompleted event.
@@ -95,7 +95,7 @@ namespace MessageBusPatterns.MessageBus.Server
                     try
                     {
                         // Create queue object
-                        using (var queue = new MessageQueue(subscriberQueue))
+                        using (var queue = QueueHelper.GetQueueReference(subscriberQueue))
                         {
                             queue.Formatter = new XmlMessageFormatter();
 
